@@ -1,18 +1,18 @@
 class Demiourgos < Formula
   desc "Demiourgos CLI"
   homepage "https://github.com/sarveshdakhore/demiourgos-client-dist"
-  version "0.2.3"
+  version "0.2.5"
 
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/sarveshdakhore/demiourgos-client-dist/releases/download/v#{version}/demiourgos-#{version}-darwin-arm64.tar.gz"
-      sha256 "16c65d8eade999a7b8a2bce7e244a7a1c3cf4577edd598737c54bc20701ae548"
+      sha256 "9d76e1e8e1f72ebac0e827856c08d542daf52e7e24cf4ebb1f43505a35ec9830"
     else
       odie "Intel macOS builds are not published yet. Use Apple Silicon macOS or Linux."
     end
   elsif OS.linux?
     url "https://github.com/sarveshdakhore/demiourgos-client-dist/releases/download/v#{version}/demiourgos-#{version}-linux-amd64.tar.gz"
-    sha256 "7cc5c375eb3a8b45d17cb6a860cae28522c04346d83a53770cf7b1d66ee56357"
+    sha256 "da2fc3944f296d38e461837c0d3e81ef9d3abdcfcf344cc168662d54eeb54a5b"
   end
 
   def install
