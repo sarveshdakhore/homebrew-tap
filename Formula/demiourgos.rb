@@ -1,20 +1,18 @@
 class Demiourgos < Formula
   desc "Demiourgos CLI"
   homepage "https://github.com/sarveshdakhore/demiourgos-client-dist"
-  version "0.2.8"
+  version "0.2.81"
 
   if OS.mac?
-    # Some non-interactive environments report Hardware::CPU as :dunno.
-    # Fall back to RUBY_PLATFORM so arm64 macOS can still install bottles.
-    if Hardware::CPU.arm? || RUBY_PLATFORM.include?("arm64")
+    if Hardware::CPU.arm?
       url "https://github.com/sarveshdakhore/demiourgos-client-dist/releases/download/v#{version}/demiourgos-#{version}-darwin-arm64.tar.gz"
-      sha256 "802d2ff7dce9f29895f8f93106c33c17584fb8ccad39f60a966e47c2cc20dbed"
+      sha256 "780c9313ae0d9249277bb4206c9a16e180742d6dfa71c26e382e97039f257d38"
     else
       odie "Intel macOS builds are not published yet. Use Apple Silicon macOS or Linux."
     end
   elsif OS.linux?
     url "https://github.com/sarveshdakhore/demiourgos-client-dist/releases/download/v#{version}/demiourgos-#{version}-linux-amd64.tar.gz"
-    sha256 "7972c1b3724832898c9fe4cc0677908a14b11ac3fdaf8b43d7c83494e5bc7590"
+    sha256 "25ae3328a0cd1f9b49ee13f74e97de283100cf0c28325a3e69d039405da90890"
   end
 
   def install
