@@ -4,7 +4,9 @@ class Demiourgos < Formula
   version "0.2.81"
 
   if OS.mac?
-    if Hardware::CPU.arm?
+    # Some non-interactive environments report Hardware::CPU as unknown.
+    # Fall back to RUBY_PLATFORM so arm64 macOS installs still work.
+    if Hardware::CPU.arm? || RUBY_PLATFORM.include?("arm64")
       url "https://github.com/sarveshdakhore/demiourgos-client-dist/releases/download/v#{version}/demiourgos-#{version}-darwin-arm64.tar.gz"
       sha256 "8fdd81e5c9989d1ce0568108c816b4b9f5c8da4ddb2c5b4ee73fa32f80239404"
     else
