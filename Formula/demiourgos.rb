@@ -1,20 +1,20 @@
 class Demiourgos < Formula
   desc "Demiourgos CLI"
   homepage "https://github.com/sarveshdakhore/demiourgos-client-dist"
-  version "0.2.91"
+  version "0.2.92"
 
   if OS.mac?
     # Some non-interactive environments report Hardware::CPU as unknown.
     # Fall back to RUBY_PLATFORM so arm64 macOS installs still work.
     if Hardware::CPU.arm? || RUBY_PLATFORM.include?("arm64")
       url "https://github.com/sarveshdakhore/demiourgos-client-dist/releases/download/v#{version}/demiourgos-#{version}-darwin-arm64.tar.gz"
-      sha256 "7657ff27f69bc35b48cddf0bdc6cb7f1923fbac77587620f5a7c41af8cd9a9e2"
+      sha256 "95af71cf71e3b3c2928455588db1a07393e57d2a7da82935b7b6716b317bc1c7"
     else
       odie "Intel macOS builds are not published yet. Use Apple Silicon macOS or Linux."
     end
   elsif OS.linux?
     url "https://github.com/sarveshdakhore/demiourgos-client-dist/releases/download/v#{version}/demiourgos-#{version}-linux-amd64.tar.gz"
-    sha256 "920317d9c5cf08b508b9004fca77ef983600432c4331def24ce8d95fde3b6ff8"
+    sha256 "6c06873f8907c47a50991cd66fd2d92bee88ab353f6db8f7cea6caf39756dffc"
   end
 
   def install
